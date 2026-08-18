@@ -1,0 +1,10 @@
+build/
+compile_commands.json
+.cache/
+.DS_Store
+*.o
+*.dSYM/
+perf.data*
+*.folded
+*.svg
+!docs/**/*.svg
