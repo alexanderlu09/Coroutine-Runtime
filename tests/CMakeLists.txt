@@ -3,6 +3,7 @@ add_executable(coro_tests
   main.cpp
   test_clock.cpp
   test_intrusive_list.cpp
+  test_scheduler.cpp
 )
 
 target_link_libraries(coro_tests PRIVATE coro)

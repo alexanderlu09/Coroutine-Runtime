@@ -19,6 +19,7 @@ option(CORO_BUILD_EXAMPLES "Build the examples"   ON)
 # ---------------------------------------------------------------------------
 add_library(coro
   src/clock.cpp
+  src/scheduler.cpp
 )
 target_include_directories(coro PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_compile_options(coro PRIVATE
