@@ -4,8 +4,11 @@ add_executable(coro_tests
   test_clock.cpp
   test_intrusive_list.cpp
   test_scheduler.cpp
-  test_kqueue_driver.cpp
 )
+
+if(CORO_HAVE_KQUEUE)
+  target_sources(coro_tests PRIVATE test_kqueue_driver.cpp)
+endif()
 
 target_link_libraries(coro_tests PRIVATE coro)
 target_include_directories(coro_tests PRIVATE ${CMAKE_SOURCE_DIR}/third_party)

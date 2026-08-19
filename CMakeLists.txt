@@ -20,8 +20,13 @@ option(CORO_BUILD_EXAMPLES "Build the examples"   ON)
 add_library(coro
   src/clock.cpp
   src/scheduler.cpp
-  src/kqueue_driver.cpp
 )
+# kqueue is BSD-only; the Linux backend (epoll/io_uring) comes later.
+if(APPLE OR CMAKE_SYSTEM_NAME MATCHES "BSD")
+  target_sources(coro PRIVATE src/kqueue_driver.cpp)
+  set(CORO_HAVE_KQUEUE ON)
+endif()
+
 target_include_directories(coro PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_compile_options(coro PRIVATE
   -Wall -Wextra -Wpedantic
