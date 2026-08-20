@@ -2,12 +2,14 @@
 
 #include "coro/socket.hpp"
 
+#include <arpa/inet.h>
 #include <fcntl.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <unistd.h>
 
 #include <cstdlib>
+#include <utility>
 
 using namespace coro;
 
