@@ -4,6 +4,7 @@ add_executable(coro_tests
   test_clock.cpp
   test_intrusive_list.cpp
   test_scheduler.cpp
+  test_socket.cpp
 )
 
 if(CORO_HAVE_KQUEUE)
